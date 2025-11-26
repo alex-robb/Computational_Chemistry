@@ -1,0 +1,37 @@
+$molecule
+0 1                             # Charge and multiplicity (0 = neutral, 1 = singlet)
+C     0.000000    0.000000    0.000000     	# Replace these lines with your actual coordinates
+...
+$end
+
+
+$rem
+   BASIS = 6-31G**              # Basis set: split-valence with polarization functions on all atoms
+   METHOD = B3LYP               # DFT functional: hybrid functional suitable for ground-state optimization
+   JOB_TYPE = Optimization      # Specifies geometry optimization
+   GEOM_OPT_MAX_CYCLES  =  200  # Number of Attempts at Geometry
+   SCF_CONVERGENCE = 8          # Tight SCF convergence threshold (default is 6)
+   SCF_MAX_CYCLES = 100         # Maximum number of SCF iterations allowed
+   GUI = 2                      # Enables detailed output for visualization tools (e.g., orbitals, densities)
+$end
+
+
+@@@
+
+
+$molecule
+read
+$end
+
+
+$rem
+   BASIS = 6-31G**              # Same basis set for consistency with optimization
+   METHOD = B3LYP               # Range-separated hybrid functional; better for charge-transfer and excited states
+   JOB_TYPE = SP                # Single-point energy calculation using optimized geometry
+   SCF_CONVERGENCE = 8          # Tight SCF convergence
+   SCF_MAX_CYCLES = 100         # Max SCF cycles
+   CIS_N_ROOTS = 10             # Number of excited states to compute
+   RPA = 1                      # Enables TDDFT (Time-Dependent DFT)
+   NTO_PAIRS = 2		            # Draw First 2 NTOs
+   GUI = 2                      # Enables detailed output for visualization tools (e.g., NTOs, orbitals)
+$end
