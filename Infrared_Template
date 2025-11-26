@@ -1,0 +1,16 @@
+$molecule
+0 1                             # Charge and multiplicity (0 = neutral, 1 = singlet)
+C     0.000000    0.000000    0.000000     	# Put an OPTIMIZED molecule coords. here
+...
+$end
+
+
+$rem
+   BASIS = 6-31G**              # Basis set: split-valence with polarization functions on all atoms
+   METHOD = B3LYP               # DFT functional: hybrid functional suitable for ground-state optimization
+   JOB_TYPE = Frequency 	      # Specifies Frequency IR calc
+   SCF_CONVERGENCE = 8          # Tight SCF convergence threshold (default is 6)
+   SCF_MAX_CYCLES = 200         # Maximum number of SCF iterations allowed
+   SYMMETRY_IGNORE = 1		      # Lower Threshold for Symmetry
+   GUI = 2                      # Enables detailed output for visualization tools (e.g., orbitals, densities)
+$end
