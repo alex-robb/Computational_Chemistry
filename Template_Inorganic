@@ -1,0 +1,38 @@
+$molecule
+0 1
+C     0.000000    0.000000    0.000000     	# Replace these lines with your molecules coordinates
+...
+$end
+
+$rem
+   BASIS  =  LACVP                  # Set that is better suited for Metal Complexes
+   ECP  =  fit-LACVP
+   METHOD  =  B3LYP   
+   JOB_TYPE  =  Optimization        # All of the commands in this half of the code find the optimal geometry of the complex
+   GEOM_OPT_MAX_CYCLES  =  200
+   SCF_CONVERGENCE  =  8
+   SCF_MAX_CYCLES  =  200
+   GUI  =  0                        # GUI = 0 means it only saves the final optimized output
+$end
+
+
+@@@
+
+
+$molecule
+read
+$end
+
+
+$rem
+   BASIS  =  LACVP
+   ECP  =  fit-LACVP
+   METHOD  =  B3LYP
+   JOB_TYPE  =  SP                # This half of the code takes the optimized geometry from part 1 and uses it to calculate parameters like excited states
+   SCF_CONVERGENCE  =  8
+   SCF_MAX_CYCLES  =  200
+   CIS_N_ROOTS  =  30
+   RPA  =  1
+   NTO_PAIRS  =  2
+   GUI  =  2
+$end
