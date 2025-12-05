@@ -6,7 +6,7 @@
 #SBATCH --mail-type=all
 
 module load gcc/13.3.0
-module load qchem-openmp/6.2.0
+module load qchem/6.2.0
 
 export QCSCRATCH=/scratch1/<insert usc-username>  # this needs to be replaced with your own path
 
